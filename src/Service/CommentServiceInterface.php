@@ -1,6 +1,6 @@
 <?php
 
-namespace ComposerPackage;
+namespace ComposerPackage\Service;
 
 use ComposerPackage\Model\Comment;
 use ComposerPackage\Model\CommentBody;

@@ -1,5 +1,5 @@
 {
-    "name": "lubsan-garmaev/example-client",
+    "name": "lubsangarmaev98/example-client",
     "description": "Client for comments",
     "type": "library",
     "license": "MIT",
@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "ComposerPackage\\": "tests/"
+            "ComposerPackageTest\\": "tests/"
         }
     },
     "require": {

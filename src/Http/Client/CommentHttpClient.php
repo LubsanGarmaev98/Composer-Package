@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ComposerPackage\Http;
 
-use DromTask2\Http\Request\AbstractRequest;
+use ComposerPackage\Http\Request\AbstractRequest;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;

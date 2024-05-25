@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ComposerPackage;
+namespace ComposerPackage\Service;
 
 use ComposerPackage\Exception\CommentServiceException;
 use ComposerPackage\Http\CommentHttpClient;
