@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace ComposerPackage\Service;
+namespace lubsangarmaev98\ComposerPackage\Service;
 
-use ComposerPackage\Exception\CommentServiceException;
-use ComposerPackage\Http\CommentHttpClient;
-use ComposerPackage\Http\Request\GetCommentsRequest;
-use ComposerPackage\Http\Request\CreateCommentRequest;
-use ComposerPackage\Http\Request\UpdateCommentRequest;
-use ComposerPackage\Model\Comment;
-use ComposerPackage\Model\CommentBody;
-use ComposerPackage\Service\CommentBuilder;
+use lubsangarmaev98\ComposerPackage\Exception\CommentServiceException;
+use lubsangarmaev98\ComposerPackage\Http\Client\CommentHttpClient;
+use lubsangarmaev98\ComposerPackage\Http\Request\Api\GetCommentsRequest;
+use lubsangarmaev98\ComposerPackage\Http\Request\Api\CreateCommentRequest;
+use lubsangarmaev98\ComposerPackage\Http\Request\Api\UpdateCommentRequest;
+use lubsangarmaev98\ComposerPackage\Model\Comment;
+use lubsangarmaev98\ComposerPackage\Model\CommentBody;
+use lubsangarmaev98\ComposerPackage\Service\CommentBuilder;
 use Generator;
 use JsonMachine\Items;
 use Psr\Log\LoggerInterface;

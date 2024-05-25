@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ComposerPackage\Http\Request;
+namespace lubsangarmaev98\ComposerPackage\Http\Request;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Traversable;

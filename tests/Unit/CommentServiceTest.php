@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ComposerPackageTest\Unit;
 
-use ComposerPackage\Service\CommentService;
-use ComposerPackage\Http\CommentHttpClient;
-use ComposerPackage\Model\Comment;
-use ComposerPackage\Model\CommentBody;
+use lubsangarmaev98\ComposerPackage\Service\CommentService;
+use lubsangarmaev98\ComposerPackage\Http\Client\CommentHttpClient;
+use lubsangarmaev98\ComposerPackage\Model\Comment;
+use lubsangarmaev98\ComposerPackage\Model\CommentBody;
 use Generator;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;

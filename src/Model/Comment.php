@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ComposerPackage\Model;
+namespace lubsangarmaev98\ComposerPackage\Model;
 
 /**
  * Контейнер комментария.

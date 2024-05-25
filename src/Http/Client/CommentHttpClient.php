@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ComposerPackage\Http;
+namespace lubsangarmaev98\ComposerPackage\Http\Client;
 
-use ComposerPackage\Http\Request\AbstractRequest;
+use lubsangarmaev98\ComposerPackage\Http\Request\AbstractRequest;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;

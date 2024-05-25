@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ComposerPackage\Http\Request;
+namespace lubsangarmaev98\ComposerPackage\Http\Request\Api;
+
+use lubsangarmaev98\ComposerPackage\Http\Request\AbstractRequest;
 
 use Traversable;
 

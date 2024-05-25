@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ComposerPackage\Service;
+namespace lubsangarmaev98\ComposerPackage\Service;
 
-use ComposerPackage\Model\Comment;
-use ComposerPackage\Model\CommentBody;
+use lubsangarmaev98\ComposerPackage\Model\Comment;
+use lubsangarmaev98\ComposerPackage\Model\CommentBody;
 use stdClass;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;

@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ComposerPackage\Http\Request;
+namespace lubsangarmaev98\ComposerPackage\Http\Request\Api;
 
 use Traversable;
+use lubsangarmaev98\ComposerPackage\Http\Request\AbstractRequest;
 
 /**
  * Класс объекта запроса редактирования комментария.

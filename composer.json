@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "ComposerPackage\\": "src/"
+            "lubsangarmaev98\\ComposerPackage\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ComposerPackageTest\\": "tests/"
+            "lubsangarmaev98\\ComposerPackageTest\\": "tests/"
         }
     },
     "require": {

@@ -1,9 +1,9 @@
 <?php
 
-namespace ComposerPackage\Service;
+namespace lubsangarmaev98\ComposerPackage\Service;
 
-use ComposerPackage\Model\Comment;
-use ComposerPackage\Model\CommentBody;
+use lubsangarmaev98\ComposerPackage\Model\Comment;
+use lubsangarmaev98\ComposerPackage\Model\CommentBody;
 
 /**
  * Интерфейс сервиса комментариев.

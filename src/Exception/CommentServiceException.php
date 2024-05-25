@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ComposerPackage\Exception;
+namespace lubsangarmaev98\ComposerPackage\Exception;
 
 use RuntimeException;
 
