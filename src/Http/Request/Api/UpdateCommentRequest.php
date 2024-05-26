@@ -73,6 +73,17 @@ final class UpdateCommentRequest extends AbstractRequest
         return '/comment/' . $this->id;
     }
 
+
+    /**
+     * Возвращает сообщение об ошибке
+     *
+     * @return string
+     */
+    public function getErrorMessage(): string
+    {
+        return 'Ошибка редактирования комментария.';
+    }
+
     /**
      * Тело запроса.
      *

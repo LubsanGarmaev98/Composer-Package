@@ -31,8 +31,9 @@ class CommentServiceTest extends TestCase
     {
         $commentService = $this->getCommentService($httpCode, $responseBody);
 
+        /** @var Generator $comments*/        
         $comments = $commentService->getComments();
-        if (! $comments instanceof Generator) {
+        if (!$comments instanceof Generator) {
             $this->fail('Ожидается объект Generator.');
         }
 

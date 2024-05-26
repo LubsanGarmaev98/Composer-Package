@@ -27,6 +27,13 @@ abstract class AbstractRequest
     abstract public function getUri(): string;
 
     /**
+     * Возвращает сообщение ошибки.
+     *
+     * @return string
+     */
+    abstract public function getErrorMessage(): string;
+
+    /**
      * Тело запроса.
      *
      * @return array|string|resource|Traversable|Closure

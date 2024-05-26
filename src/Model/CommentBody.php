@@ -7,7 +7,7 @@ namespace lubsangarmaev98\ComposerPackage\Model;
 /**
  * Контейнер тела комментария.
  */
-class CommentBody
+final class CommentBody
 {
     /**
      * @param string $name имя.

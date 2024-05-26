@@ -45,6 +45,16 @@ final class CreateCommentRequest extends AbstractRequest
     }
 
     /**
+     * Возвращает сообщение об ошибке
+     *
+     * @return string
+     */
+    public function getErrorMessage(): string
+    {
+        return 'Ошибка при создании комментария.';
+    }
+
+    /**
      * Тело запроса.
      *
      * @return array|string|resource|Traversable|Closure

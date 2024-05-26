@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace lubsangarmaev98\ComposerPackage\Service;
 
-use lubsangarmaev98\ComposerPackage\Exception\CommentServiceException;
+use lubsangarmaev98\ComposerPackage\Exception\CommentHttpException;
 use lubsangarmaev98\ComposerPackage\Http\Client\CommentHttpClient;
 use lubsangarmaev98\ComposerPackage\Http\Request\Api\GetCommentsRequest;
 use lubsangarmaev98\ComposerPackage\Http\Request\Api\CreateCommentRequest;
@@ -14,7 +14,9 @@ use lubsangarmaev98\ComposerPackage\Model\CommentBody;
 use lubsangarmaev98\ComposerPackage\Service\CommentBuilder;
 use Generator;
 use JsonMachine\Items;
+use lubsangarmaev98\ComposerPackage\Http\Request\AbstractRequest;
 use Psr\Log\LoggerInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 use Symfony\Contracts\HttpClient\ResponseStreamInterface;
 use Throwable;
 
@@ -23,6 +25,8 @@ use Throwable;
  */
 final class CommentService implements CommentServiceInterface
 {
+    private CONST SUCCESS = [200, 201] ;
+
     /**
      * @param CommentHttpClient $commentHttpClient http клиент.
      * @param LoggerInterface   $logger            логгер.
@@ -44,9 +48,8 @@ final class CommentService implements CommentServiceInterface
 
         try {
             $response = $this->commentHttpClient->execute($request);
-            if ($response->getStatusCode() !== 200) {
-                throw CommentServiceException::failResponse($response->getStatusCode(), $response->getContent());
-            }
+            
+            $this->checkStatusCode($response);
 
             $jsonChunks = $this->httpClientChunks($this->commentHttpClient->stream($response));
 
@@ -54,10 +57,7 @@ final class CommentService implements CommentServiceInterface
                 yield CommentBuilder::buildFromStd($item);
             }
         } catch (Throwable $exception) {
-            $this->logger->error(
-                'Ошибка запроса комментариев.',
-                compact('request', 'exception')
-            );
+            $this->createLoggerMessage($exception, $request);
         }
 
         return [];
@@ -90,16 +90,12 @@ final class CommentService implements CommentServiceInterface
 
         try {
             $response = $this->commentHttpClient->execute($request);
-            if ($response->getStatusCode() !== 201) {
-                throw CommentServiceException::failResponse($response->getStatusCode(), $response->getContent());
-            }
+
+            $this->checkStatusCode($response);
 
             $comment = CommentBuilder::buildFromJson($response->getContent());
         } catch (Throwable $exception) {
-            $this->logger->error(
-                'Ошибка создания комментария.',
-                compact('request', 'exception')
-            );
+            $this->createLoggerMessage($exception, $request);
 
             return null;
         }
@@ -124,16 +120,12 @@ final class CommentService implements CommentServiceInterface
 
         try {
             $response = $this->commentHttpClient->execute($request);
-            if ($response->getStatusCode() !== 201) {
-                throw CommentServiceException::failResponse($response->getStatusCode(), $response->getContent());
-            }
+
+            $this->checkStatusCode($response);
 
             $comment = CommentBuilder::buildFromJson($response->getContent());
         } catch (Throwable $exception) {
-            $this->logger->error(
-                'Ошибка редактирования комментария.',
-                compact('request', 'exception', 'comment')
-            );
+            $this->createLoggerMessage($exception, $request, $comment);
 
             return null;
         }
@@ -162,5 +154,34 @@ final class CommentService implements CommentServiceInterface
         }
 
         return $request;
+    }
+
+    /**
+     * Проверка статус кода 200 или 201
+     * 
+     * @param ResponseInterface $responseInterface
+     * @return void
+     * 
+     * @exception CommentHttpException
+     */
+    private function checkStatusCode(ResponseInterface $responseInterface): void 
+    {
+        if (!in_array($responseInterface->getStatusCode(), self::SUCCESS)) {
+            throw CommentHttpException::failResponse(
+                $responseInterface->getStatusCode(), 
+                $responseInterface->getContent()
+            );
+        }
+    }
+
+    private function createLoggerMessage(Throwable $exception, AbstractRequest $request, ?Comment $comment = null)
+    {
+        $this->logger->error(
+            $request->getErrorMessage(),
+            match(true) {
+                !is_null($comment)   => compact('request', 'exception', 'comment'),
+                default             => compact('request', 'exception')
+            }
+        );
     }
 }

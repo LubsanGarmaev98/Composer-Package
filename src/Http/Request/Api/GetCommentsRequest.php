@@ -30,4 +30,15 @@ final class GetCommentsRequest extends AbstractRequest
     {
         return '/comments';
     }
+
+
+    /**
+     * Возвращает сообщение об ошибке
+     *
+     * @return string
+     */
+    public function getErrorMessage(): string
+    {
+        return 'Ошибка при получении комментариев';
+    }
 }

@@ -9,7 +9,7 @@ use RuntimeException;
 /**
  * Исключение сервиса комментариев.
  */
-final class CommentServiceException extends RuntimeException
+final class CommentHttpException extends RuntimeException
 {
     /**
      * Генерирует исключение. Вызывает при коде ответа отличном от 200.

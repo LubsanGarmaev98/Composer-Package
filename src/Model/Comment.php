@@ -7,7 +7,7 @@ namespace lubsangarmaev98\ComposerPackage\Model;
 /**
  * Контейнер комментария.
  */
-class Comment
+final class Comment
 {
     /**
      * @param int         $id          идентификатор.
